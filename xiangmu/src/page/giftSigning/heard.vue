@@ -22,6 +22,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .heard {
+  z-index: 2;
   display:block;
   width: 100%;
   .vux-header {

@@ -52,9 +52,11 @@ const memberGroupTag = (resolve) => { require(['@/page/memberGroup/tag.vue'], re
 const memberGroupSelectTag = (resolve) => { require(['@/page/memberGroup/selectTag.vue'], resolve) }
 
 // 签赠
-const giftSigning = (resolve) => { require(['@/page/giftSigning/index.vue'], resolve) }
-const setgiftSigning = (resolve) => { require(['@/page/giftSigning/setgiftSigning.vue'], resolve) }
-const giftSigningdetall = (resolve) => { require(['@/page/giftSigning/giftSigningdetail.vue'], resolve) }
+const giftSigning = (resolve) => { require(['@/page/giftSigning/GiftsigningHome.vue'], resolve) }
+const setgiftSigning = (resolve) => { require(['@/page/giftSigning/SetGiftsigning.vue'], resolve) }
+const giftSigningdetall = (resolve) => { require(['@/page/giftSigning/GiftsigningDetail.vue'], resolve) }
+const newGiftsigning = (resolve) => { require(['@/page/giftSigning/NewGiftsigning.vue'], resolve) }
+const staff = (resolve) => { require(['@/page/giftSigning/Staff.vue'], resolve) }
 
 const vueRouter = new Router({
   routes: [
@@ -94,8 +96,9 @@ const vueRouter = new Router({
     // 签赠
     {path: '/giftSigning', name: 'giftSigning', component: giftSigning, meta: {title: '签赠'}},
     {path: '/giftSigning/set', name: 'setgiftSigning', component: setgiftSigning, meta: {title: '签赠设置'}},
-    {path: '/giftSigning/detall', name: 'giftSigningdetall', component: giftSigningdetall, meta: {title: '签赠明细'}}
-
+    {path: '/giftSigning/detall', name: 'giftSigningdetall', component: giftSigningdetall, meta: {title: '签赠明细'}},
+    {path: '/giftSigning/new', name: 'newGiftsigning', component: newGiftsigning, meta: {title: '新建签赠人'}},
+    {path: '/giftSigning/staff', name: 'staff', component: staff, meta: {title: '员工'}}
   ]
 })
 
