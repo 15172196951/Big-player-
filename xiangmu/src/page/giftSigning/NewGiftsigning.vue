@@ -9,10 +9,10 @@
         </div>
         <div class="everyDay">
             <x-input
-                title="备注"
+                title="每月游戏币签赠上限"
                 v-model="lengthP"
                 text-align="right"  
-                placeholder="请输入备注"
+                placeholder="未输入"
                 @on-change="aa"
             ></x-input>
         </div>
@@ -22,87 +22,94 @@
     </div>
 </template>
 <script>
-import Head from './heard.vue'
-import { XInput } from 'vux'
-document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px'
+import Head from "./heard.vue";
+import { XInput } from "vux";
+document.documentElement.style.fontSize =
+  document.documentElement.clientWidth / 7.5 + "px";
 export default {
-components: {
+  components: {
     Head,
-    XInput,
+    XInput
   },
-  data () {
+  data() {
     return {
-        lengthP: "",
-    }
+      lengthP: ""
+    };
   },
-  mounted () {},
+  mounted() {},
   methods: {
-      goYuangong(){
-          this.$router.push({path:'/giftSigning/staff'});
-      },
-      aa(){
-          console.log(this.lengthP)
-      },
-      baocun(){
-          console.log("保存按钮被点击")
-      }
-  }    
-}
+    goYuangong() {
+      this.$router.push({ path: "/giftSigning/staff" });
+    },
+    aa() {
+      console.log(this.lengthP);
+    },
+    baocun() {
+      console.log("保存按钮被点击");
+    }
+  }
+};
 </script>
 <style lang="less" scoped>
-.newGiftsigning{
-    display: block;
-    width: 100%;
-    height: 100%;
-    .Signperson{
-        height: 0.9rem;
-        line-height: 0.9rem;
-        font-size: 0.3rem;
-        padding: 0 0.3rem;
-        img{
-            width: 0.32rem;
-            height: 0.32rem;
-            margin-top: 0.29rem;
-        }
+.newGiftsigning {
+  display: block;
+  width: 100%;
+  height: 100%;
+  .Signperson {
+    height: 0.9rem;
+    line-height: 0.9rem;
+    font-size: 0.3rem;
+    padding: 0 0.3rem;
+    img {
+      width: 0.32rem;
+      height: 0.32rem;
+      margin-top: 0.29rem;
     }
-    .everyDay{
-        height: 0.9rem;
-        line-height: 0.9rem;
-        font-size: 0.3rem;
-        margin-bottom: 8.74rem;
+  }
+  .everyDay {
+    height: 0.9rem;
+    line-height: 0.9rem;
+    font-size: 0.3rem;
+    margin-bottom: 8.74rem;
+  }
+  .btnBox {
+    padding: 0 0.3rem;
+    text-align: center;
+    .btn {
+      border: 0;
+      background-color: none;
+      width: 6.7rem;
+      height: 0.8rem;
+      background-color: #259bec;
+      color: #fff;
+      font-size: 0.32rem;
+      border-radius: 0.08rem;
     }
-    .btnBox{
-        padding: 0 0.3rem;
-        text-align: center;
-        .btn{
-            border: 0;
-            background-color:none;
-            width: 6.7rem;
-            height: 0.8rem;
-            background-color: #259BEC;
-            color: #fff;
-            font-size: 0.32rem;
-            border-radius: 0.08rem;
-        }
-    }
+  }
 }
 </style>
 <style lang="less">
-    input::-webkit-input-placeholder{
-        color:#AAAAAA;
-    }
-    input::-moz-placeholder{   /* Mozilla Firefox 19+ */
-        color:#AAAAAA;
-    }
-    input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-        color:#AAAAAA;
-    }
-    input:-ms-input-placeholder{  /* Internet Explorer 10-11 */ 
-        color:#AAAAAA;
-    }
-    .weui-cell{
-        padding: 0 0.3rem !important;
-    }
+input::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #aaaaaa;
+}
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #aaaaaa;
+}
+input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #aaaaaa;
+}
+.weui-cell {
+  padding: 0 0.3rem !important;
+}
+.weui-label {
+  width: 100% !important;
+}
 </style>
 
 

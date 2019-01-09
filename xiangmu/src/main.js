@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import App from './App'
 import ajaxService from '@a/js/ajaxService.js'
+import namedavatarVue from '@a/js/namedavatar-vue.js'
 import { cookie } from 'vux'
 
 // ajaxService.defaults.headers['token'] = cookie.get('access_token')
@@ -20,6 +21,8 @@ require('@a/css/iconfont.css')
 require('@a/css/flex.css')
 require('@a/css/base.css')
 require('@a/js/rem.js')
+
+Vue.directive('avatar', namedavatarVue.directive)
 
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {

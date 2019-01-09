@@ -1,5 +1,6 @@
 <template>
   <div class="giftSigning">
+    <div class="box">
     <Head msg="签赠"/>
     <div class="select">西安李家村万达店铺</div>
     <div class="giftcontent">
@@ -49,7 +50,6 @@
         <router-link :to="{name:'giftSigningdetall'}">签赠明细</router-link>
       </div>
     </div>
-    <!-- 弹窗 -->
     <div v-if="showDialog" class="dialog">
       <div class="dialog-content">
           <ul class="dialog-ul">
@@ -73,12 +73,13 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 <script>
-import Head from './heard.vue'
-import { Checker, CheckerItem, XButton, Group, Selector, XInput } from 'vux'
+import Head from "./heard.vue";
+import { Checker, CheckerItem, XButton, Group, Selector, XInput } from "vux";
 document.documentElement.style.fontSize =
-  document.documentElement.clientWidth / 7.5 + 'px'
+  document.documentElement.clientWidth / 7.5 + "px";
 export default {
   components: {
     Head,
@@ -89,18 +90,21 @@ export default {
     Selector,
     XInput
   },
-  data () {
+  data() {
     return {
       demo5: 1,
       demo01: "",
-      list: [{ key: "gd", value: "接待用币" }, { key: "gx", value: "赔赠用币" }],
+      list: [
+        { key: "gd", value: "接待用币" },
+        { key: "gx", value: "赔赠用币" }
+      ],
       lengthP: "",
-      val:null,
-      giftcontent:{
-        memberName:null,
-        gameCurrency:"游戏币",
+      val: null,
+      giftcontent: {
+        memberName: null,
+        gameCurrency: "游戏币"
       },
-      showDialog:false
+      showDialog: false
     };
   },
   computed: {
@@ -119,213 +123,213 @@ export default {
       console.log(6666);
     },
     queren() {
-      console.log('确认按钮被点击');
-      console.log(this.giftcontent.memberName)
-      console.log(this.val)
-      this.showDialog=true;
+      console.log("确认按钮被点击");
+      console.log(this.giftcontent.memberName);
+      console.log(this.val);
+      this.showDialog = true;
     },
     aa() {
-      if (this.lengthP.length >=10) {
+      if (this.lengthP.length >= 10) {
         // console.log(`1`);
         this.lengthP = this.lengthP.substring(0, 10) + "...";
       } else {
         console.log(`2`);
       }
     },
-    saoyisao(){
-      console.log("扫一扫被电击")
+    saoyisao() {
+      console.log("扫一扫被电击");
     },
-    handleInput(e){
-    this.val=e.target.value.replace(/[^\d]/g,'');
+    handleInput(e) {
+      this.val = e.target.value.replace(/[^\d]/g, "");
     },
-    dialogYes(){
-      console.log("确认签赠被电击")
+    dialogYes() {
+      console.log("确认签赠被电击");
     },
-    dialogNo(){
-      this.showDialog=false;
+    dialogNo() {
+      this.showDialog = false;
     }
-  },
-  
+  }
 };
 </script>
 <style lang="less" scoped>
 .giftSigning {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  a {
-    text-decoration: none;
-  }
-  .select {
-    width: 100%;
-    height: 0.9rem;
-    margin-bottom: 0.3rem;
-    font-size: 0.28rem;
-    background-color: #fff;
-    padding-left: 0.4rem;
-    line-height: 0.9rem;
-  }
-  .giftcontent {
-    height: 3.9rem;
-    font-size: 0.32rem;
-    margin-bottom: 0.3rem;
-    background-color: #fff;
-    padding-left: 0.3rem;
-    .membernum {
-      height: 1.3rem;
-      line-height: 1.3rem;
-      padding-right: 0.3rem;
-      input::-webkit-input-placeholder {
-        color:#AAAAAA;
-        font-size: 0.32rem;
-        }
-      span{
-        float: left;
-        margin-right: 0.6rem;
-      }
-      input{
-        line-height: 1.3rem;
-        float: left;
-        background:none;  
-        outline:none;  
-        border:0;
-        margin-right:0.5rem;
-      }
-      img{
-        float: left;
-        margin-top: 0.41rem;
-        width: 0.48rem;
-        height: 0.48rem;
-        vertical-align: top;
-      }
-    }
-    .sign-content {
-      height: 1.3rem;
-      line-height: 1.3rem;
-      .demo5-ite,.demo5-ite1 {
-        color: #888888;
-        width: 1.7rem;
-        height: 0.6rem;
-        border: 0.02rem solid #d2d2d2;
-        font-size: 0.28rem;
-        line-height: 0.6rem;
-        text-align: center;
-        border-radius: 0.04rem;
-      }
-      .demo5-item-selected {
-        background: url("../../assets/images/active.jpg") no-repeat right bottom;
-        background-size: 0.8rem 0.6rem;
-        color: #259bec;
-        border: 1px solid #259bec;
-        border-radius: 0.04rem;
-      }
-    }
-    .giftnum {
-      height: 1.3rem;
-      line-height: 1.3rem;
-      span{
-        float: left;
-        margin-right: 0.6rem;
-      }
-      input::-webkit-input-placeholder {
-        color:#AAAAAA;
-        font-size: 0.32rem;
-        }
-      input{
-        line-height: 1.1rem;
-        width: 50%;
-        float: left;
-        background:none;  
-        outline:none;  
-        border:0;
-      }
-    }
-  }
-  .yongtu {
-    height: 1.8rem;
-    font-size: 0.3rem;
-    background-color: #fff;
-    margin-bottom: 0.6rem;
-    padding-right: 0.2rem;
-  }
-  .btnbox {
-    margin-bottom: 2.62rem;
-    .weui-btn_disabled.weui-btn_primary{
-      background-color:#DCDCDC;
-    }
-    .btn {
-      width: 6.7rem;
-      height: 0.8rem;
-    }
-  }
-  .gift-foot {
-    padding: 0 0.3rem;
-    height: 0.42rem;
-    line-height: 0.2rem;
-    img {
-      width: 0.351rem;
-      height: 0.351rem;
-      vertical-align: top;
-      line-height: 0.42rem;
-      margin-top: 0.035rem;
-    }
+  // background-color: #aaaaaa;
+  .box {
     a {
-      color: #5a7c9a;
-      font-size: 0.3rem;
+      text-decoration: none;
     }
-  }
-  .dialog{
-    position: absolute;
-    top:0;
-    width: 100%;
-    height: 100%;
-    background-color: #222222;
-    background:rgba(0,0,0,0.6) ;
-    z-index: 1;
-    .dialog-content{
-      padding: 0.66rem 0.92rem 0.29rem 0.92rem;
-      top:4.83rem;
-      left: 1.05rem;
-      width: 5.4rem;
-      height: 3.72rem;
-      font-size: 0.32rem;
+    .select {
+      width: 100%;
+      height: 0.9rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.28rem;
       background-color: #fff;
-      border-radius: 0.12rem;
-      .dialog-ul{
-        height: 1.68rem;
-        margin-bottom: 0.64rem;
-        li{
-          overflow: hidden;
-          height: 0.56rem;
-          line-height: 0.56rem;
-          span{
-            color: #222222;
-          }
-          .dialog-num{
-              color: #F98125;
-            }
-          .dialog-title{
-            color:#888;
-            font-size: 0.3rem;
-          }
+      padding-left: 0.4rem;
+      line-height: 0.9rem;
+    }
+    .giftcontent {
+      height: 3.9rem;
+      font-size: 0.32rem;
+      margin-bottom: 0.3rem;
+      background-color: #fff;
+      padding-left: 0.3rem;
+      .membernum {
+        height: 1.3rem;
+        line-height: 1.3rem;
+        padding-right: 0.3rem;
+        input::-webkit-input-placeholder {
+          color: #aaaaaa;
+          font-size: 0.32rem;
+        }
+        span {
+          float: left;
+          margin-right: 0.6rem;
+        }
+        input {
+          line-height: 1.3rem;
+          float: left;
+          background: none;
+          outline: none;
+          border: 0;
+          margin-right: 0.5rem;
+        }
+        img {
+          float: left;
+          margin-top: 0.41rem;
+          width: 0.48rem;
+          height: 0.48rem;
+          vertical-align: top;
         }
       }
-      .dialog-querenBtn{
-        color: #259BEC;
+      .sign-content {
+        height: 1.3rem;
+        line-height: 1.3rem;
+        .demo5-ite,
+        .demo5-ite1 {
+          color: #888888;
+          width: 1.7rem;
+          height: 0.6rem;
+          border: 0.02rem solid #d2d2d2;
+          font-size: 0.28rem;
+          line-height: 0.6rem;
+          text-align: center;
+          border-radius: 0.04rem;
+        }
+        .demo5-item-selected {
+          background: url("../../assets/images/active.png") no-repeat right
+            bottom;
+          background-size: 0.36rem 0.36rem;
+          color: #259bec;
+          border: 1px solid #259bec;
+          border-radius: 0.04rem;
+        }
+      }
+      .giftnum {
+        height: 1.3rem;
+        line-height: 1.3rem;
+        span {
+          float: left;
+          margin-right: 0.6rem;
+        }
+        input::-webkit-input-placeholder {
+          color: #aaaaaa;
+          font-size: 0.32rem;
+        }
+        input {
+          line-height: 1.1rem;
+          width: 50%;
+          float: left;
+          background: none;
+          outline: none;
+          border: 0;
+        }
+      }
+    }
+    .yongtu {
+      height: 1.8rem;
+      font-size: 0.3rem;
+      background-color: #fff;
+      margin-bottom: 0.6rem;
+      padding-right: 0.2rem;
+    }
+    .btnbox {
+      margin-bottom: 2.62rem;
+      .weui-btn_disabled.weui-btn_primary {
+        background-color: #dcdcdc;
+      }
+      .btn {
+        width: 6.7rem;
+        height: 0.8rem;
+      }
+    }
+    .gift-foot {
+      padding: 0 0.3rem;
+      height: 0.42rem;
+      line-height: 0.2rem;
+      img {
+        width: 0.351rem;
+        height: 0.351rem;
+        vertical-align: top;
+        line-height: 0.42rem;
+        margin-top: 0.035rem;
+      }
+      a {
+        color: #5a7c9a;
+        font-size: 0.3rem;
+      }
+    }
+    .dialog {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #222222;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      .dialog-content {
+        padding: 0.66rem 0.92rem 0.29rem 0.92rem;
+        top: 4.83rem;
+        left: 1.05rem;
+        width: 5.4rem;
+        height: 3.72rem;
+        font-size: 0.32rem;
+        background-color: #fff;
+        border-radius: 0.12rem;
+        .dialog-ul {
+          height: 1.68rem;
+          margin-bottom: 0.64rem;
+          li {
+            overflow: hidden;
+            height: 0.56rem;
+            line-height: 0.56rem;
+            span {
+              color: #222222;
+            }
+            .dialog-num {
+              color: #f98125;
+            }
+            .dialog-title {
+              color: #888;
+              font-size: 0.3rem;
+            }
+          }
+        }
+        .dialog-querenBtn {
+          color: #259bec;
+        }
       }
     }
   }
 }
 </style>
 <style lang="less">
-.weui-label{
-  font-size:0.3rem;
+.weui-label {
+  font-size: 0.3rem;
 }
-.weui-select{
-  font-size:0.3rem !important;
+.weui-select {
+  font-size: 0.3rem !important;
 }
-.weui-input{
-  font-size:0.3rem !important;
+.weui-input {
+  font-size: 0.3rem !important;
 }
 </style>
