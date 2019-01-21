@@ -92,12 +92,11 @@ export default {
       let _self = this
       this.shopCode = 'csxmd'
       this.showData1({
-          type: 0,
-          cb (len) {
-            _self.$refs.scroll.upShow(len)
-          }
-        })
-
+        type: 0,
+        cb (len) {
+          _self.$refs.scroll.upShow(len)
+        }
+      })
     },
     DateShow () {
       this.showDate = true
@@ -201,7 +200,7 @@ export default {
           })
         }
       })
-    },
+    }
   }
 }
 </script>

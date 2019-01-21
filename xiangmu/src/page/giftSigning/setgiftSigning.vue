@@ -137,7 +137,7 @@ export default {
         })
       })
     },
-    getOrg (val,bool) {
+    getOrg (val, bool) {
       // console.log(val)
       this.curOrg = val.org_name
       this.orgId = val.org_code
@@ -178,6 +178,7 @@ export default {
         params: {shopCode: this.shopCode, pageIndex: this.pageIndex, pageSize: this.pageSize, givenType: 1},
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
+        console.log(res)
         this.$loading.hideLoading()
         let result = res.data.result.result
         if (obj.type === 0) {
