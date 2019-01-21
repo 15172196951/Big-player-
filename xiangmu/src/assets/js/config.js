@@ -47,4 +47,20 @@ APIS.memberTag = account + '/api/tag/list'
 APIS.memberOrganization = service + '/employee/data/permission/org/list'
 APIS.memberSpellList = service + '/employee/data/permission/shop/order/list'
 
+// 签赠
+// 签赠明细
+APIS.giftsigningDetail = account + '/member/cadre_sign_coin/select_cadre_check_gift_detail'
+// 签赠getName 根据guid获取员工名称
+APIS.getname = account + '/employee/info/detail'
+// 签赠Home
+APIS.giftsigningHome = account + '/member/cadre_sign_coin_set/give_coin_to_member_by_cadre_for_IDA'
+// 签赠设置默认查询
+APIS.Setgiftsigning = account + '/member/cadre_sign_coin_set/select_cadre_sign_coin_set'
+// 签赠设置添加
+APIS.Addgiftsigning = account + '/member/cadre_sign_coin_set/add_cadre_sign_coin_set'
+// 签赠设置删除
+APIS.Deletegiftsigning = account + '/member/cadre_sign_coin_set/delete_cadre_sign_coin_set'
+// 签赠设置修改
+APIS.Updategiftsigning = account + '/member/cadre_sign_coin_set/update_cadre_sign_coin_set'
+
 export {service, account, APIS}

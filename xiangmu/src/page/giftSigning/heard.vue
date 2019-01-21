@@ -4,21 +4,19 @@
     </div>
 </template>
 <script>
-import { XHeader } from "vux";
-document.documentElement.style.fontSize =
-  document.documentElement.clientWidth / 7.5 + "px";
+import { XHeader } from 'vux'
 export default {
-  name: "Head",
+  name: 'Head',
   components: {
     XHeader
   },
-  props: ["msg"],
-  data() {
-    return {};
+  props: ['msg'],
+  data () {
+    return {}
   },
-  mounted() {},
+  mounted () {},
   methods: {}
-};
+}
 </script>
 <style lang="less" scoped>
 .heard {
@@ -27,24 +25,23 @@ export default {
   width: 100%;
   .vux-header {
     background-color: #fff;
-    height: 1, 28rem;
-    border-bottom: 0.02rem solid #d2d2d2;
+    // border-bottom: 0.5rem solid #d2d2d2;
   }
 }
 </style>
 <style lang="less">
 .vux-header-title {
   color: black !important;
-  height: 1.28rem !important;
-  line-height: 1.28rem !important;
-  font-size: 0.36rem !important;
+  height: 3.2rem !important;
+  line-height: 3.2rem !important;
+  font-size: 0.9rem !important;
 }
 .vux-header .vux-header-left .left-arrow:before {
   border-color: #259bec !important;
-  border-width: 0.04rem 0 0 0.04rem !important;
-  width: 0.37rem !important;
-  height: 0.37rem !important;
-  top: 0.4rem !important;
-  left: 0.43rem !important;
+  border-width: 0.1rem 0 0 0.1rem !important;
+  width: 0.6rem !important;
+  height: 0.6rem !important;
+  top: 0.7rem !important;
+  left: 1.08rem !important;
 }
 </style>
