@@ -137,10 +137,11 @@ export default {
         })
       })
     },
-    getOrg (val) {
-      console.log(val)
+    getOrg (val,bool) {
+      // console.log(val)
       this.curOrg = val.org_name
       this.orgId = val.org_code
+      this.isShow = !bool
       this.shopCode = 'NDT01'
       // this.getUpdate()
       this.showData({
@@ -153,6 +154,7 @@ export default {
     getSpell (obj, bool) {
       this.curOrg = obj.text
       this.orgId = obj.code
+      this.isShow = !bool
       this.shopCode = 'NDT01'
       this.showData({
         type: 0,
@@ -162,7 +164,7 @@ export default {
       })
     },
     showData (obj) {
-      console.log(obj.cb)
+      // console.log(obj.cb)
       if (obj.type === 0) {
         this.pageIndex = 0
       } else {

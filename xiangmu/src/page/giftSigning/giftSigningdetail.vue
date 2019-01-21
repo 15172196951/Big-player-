@@ -79,7 +79,8 @@ export default {
       pageIndex: 0,
       DetailList: [],
       error: '',
-      showError: false
+      showError: false,
+      shopCode: 'NDT01'
     }
   },
   created () {
@@ -92,7 +93,15 @@ export default {
   methods: {
     SetTime () {
       console.log('确认按钮被点击')
-      this.updateShopCode()
+      let _self = this
+      this.shopCode = 'csxmd'
+      this.showData1({
+          type: 0,
+          cb (len) {
+            _self.$refs.scroll.upShow(len)
+          }
+        })
+
     },
     DateShow () {
       this.showDate = true
@@ -141,19 +150,30 @@ export default {
         })
       })
     },
-    getOrg (val) {
-      console.log(val)
+    getOrg (val, bool) {
       this.curOrg = val.org_name
       // this.orgId = val.org_code // 数据回来后取消注释，当切换店铺时更换orgId
-      this.orgId = 'csxmd'
-      this.updateShopCode()
+      this.isShow = !bool
+      this.shopCode = 'csxmd'
+      this.showData1({
+        type: 0,
+        cb: (len) => {
+          this.$refs.scroll.upShow(len)
+        }
+      })
     },
     getSpell (obj, bool) {
       console.log(obj)
       this.curOrg = obj.text
       // this.orgId = obj.code // 数据回来后取消注释，当切换店铺时更换orgId
-      this.orgId = 'csxmd'
-      this.updateShopCode()
+      this.shopCode = 'csxmd'
+      this.isShow = !bool
+      this.showData1({
+        type: 0,
+        cb: (len) => {
+          this.$refs.scroll.upShow(len)
+        }
+      })
     },
     // 下拉刷新上拉加载
     showData1 (obj) {
@@ -171,7 +191,7 @@ export default {
       this.$axios({
         url: APIS.giftsigningDetail,
         method: 'get',
-        params: {shopCode: 'NDT01', time: this.value1, offset: this.pageIndex, limit: this.pageSize},
+        params: {shopCode: this.shopCode, time: this.value1, offset: this.pageIndex, limit: this.pageSize},
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
         this.$loading.hideLoading()
@@ -194,30 +214,6 @@ export default {
         }
       })
     },
-    // 当修改店铺时执行下面的请求
-    updateShopCode () {
-      console.log(this.orgId)
-      this.$loading.loading('加载中')
-      this.$axios({
-        url: APIS.giftsigningDetail,
-        method: 'get',
-        params: {shopCode: this.orgId, time: this.value1, offset: this.pageIndex, limit: this.pageSize},
-        headers: {'Content-Type': 'application/json;charset=UTF-8'}
-      }).then(res => {
-        this.$loading.hideLoading()
-        console.log(res)
-        if (res.data.status === 200) {
-          this.DetailList = res.data.data.cashierGivenCoinDetaiList
-        } else {
-          this.showError = true
-          this.error = res.data.error
-          this.$vux.toast.show({
-            type: 'text',
-            text: '暂无数据'
-          })
-        }
-      })
-    }
   }
 }
 </script>
