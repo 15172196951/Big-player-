@@ -214,7 +214,7 @@ export default {
   // position: relative;
 }
 .wrapper {
-  height: 80%;
+  height: 100%;
 }
 </style>
 
