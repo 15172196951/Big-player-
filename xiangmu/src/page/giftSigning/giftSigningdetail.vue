@@ -87,12 +87,8 @@ export default {
     this.nowDate()
     this.getInfo()
   },
-  mounted () {
-    // this.getDefault()
-  },
   methods: {
     SetTime () {
-      console.log('确认按钮被点击')
       let _self = this
       this.shopCode = 'csxmd'
       this.showData1({
@@ -138,7 +134,6 @@ export default {
         params: { employee_id: cookie.get('creatorId'), org_guid: '' },
         headers: { 'Content-Type': 'application/json;charset=UTF-8' }
       }).then(res => {
-        console.log(res)
         this.$loading.hideLoading()
         this.curOrg = res.data.result[0].org_name
         this.orgId = res.data.result[0].org_code
@@ -163,7 +158,6 @@ export default {
       })
     },
     getSpell (obj, bool) {
-      console.log(obj)
       this.curOrg = obj.text
       // this.orgId = obj.code // 数据回来后取消注释，当切换店铺时更换orgId
       this.shopCode = 'csxmd'
@@ -177,16 +171,11 @@ export default {
     },
     // 下拉刷新上拉加载
     showData1 (obj) {
-      console.log('这个showData1已经执行')
-      console.log(this.orgId)
       if (obj.type === 0) {
-        console.log('if')
         this.pageIndex = 1
       } else {
-        console.log('else')
         this.pageIndex ++
       }
-      console.log(this.pageIndex)
       this.$loading.loading('加载中')
       this.$axios({
         url: APIS.giftsigningDetail,
@@ -195,7 +184,6 @@ export default {
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
         this.$loading.hideLoading()
-        console.log(res.data.status)
         if (res.data.status === 200) {
           let result = res.data.data.cashierGivenCoinDetaiList
           if (obj.type === 0) {
