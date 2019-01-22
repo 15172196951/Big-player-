@@ -11,7 +11,7 @@
     </div>
     <div class="content" v-if="isShow">
       <div class="giftcontent">
-        <div class="membernum">
+        <div class="membernum co-flex co-jsb">
           <span>会员卡号</span>
           <input type="text" placeholder="请输入会员名" maxlength="11" style='color:#222222;font-size:0.8rem' v-model="giftcontent.memberName">
           <img src="../../assets/images/saoyisao.png" alt="#" @click="saoyisao">
@@ -335,7 +335,7 @@ export default {
         }
         span {
           float: left;
-          margin-right: 1.5rem;
+          // margin-right: 1.5rem;
         }
         input {
           line-height: 1.13rem;
@@ -343,8 +343,8 @@ export default {
           background: none;
           outline: none;
           border: 0;
-          margin-right: 0.8rem;
-          margin-top: 1.08rem;
+          // margin-right: 0.8rem;
+          // margin-top: 1.08rem;
         }
         img {
           float: left;
