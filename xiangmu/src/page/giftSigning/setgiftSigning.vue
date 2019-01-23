@@ -24,9 +24,9 @@
         >
               <div class="co-bg-0 co-flex contentbox1" @click="jumpDetail(item.guid,item.id,index)" v-for="(item,index) in DetailList" :key="index">
                   <img v-avatar="name"
-                      class="round round-mg-06 fs-0" />
+                      class="round round-mg-06 fs-0"/>
                   <div class="co-bd-b content co-of fg-1" style="padding-top:0.7rem;padding-bottom:0.25rem;padding-right:0.32rem">
-                      <p class="content-name co-te">我叫小明</p>
+                      <p class="content-name co-te">{{item.time}}</p>
                       <p  class="content-address">签赠限制><span>{{item.checkGiftTotal}}</span>币/月</p>
                   </div>
               </div>
@@ -68,13 +68,15 @@ export default {
       i: null,
       guid: '', // 点击的时候获取的员工guid
       id: '', // 测试传递到修改页面的签赠人名字
-      shopCode: 'csxmd' // 测试修改店铺的Code
+      shopCode: 'csxmd', // 测试修改店铺的Code
+      list: []
     }
   },
   created () {
     this.getInfo()
   },
   mounted () {
+    // this.abc()
   },
   methods: {
     giftAdd () {
@@ -143,7 +145,6 @@ export default {
       this.orgId = val.org_code
       this.isShow = !bool
       this.shopCode = 'NDT01'
-      // this.getUpdate()
       this.showData({
         type: 0,
         cb: (len) => {
@@ -178,32 +179,29 @@ export default {
         params: {shopCode: this.shopCode, pageIndex: this.pageIndex, pageSize: this.pageSize, givenType: 1},
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
-        console.log(res)
-        this.$loading.hideLoading()
-        let result = res.data.result.result
-        if (obj.type === 0) {
-          this.DetailList = result
-        } else {
-          this.DetailList = this.DetailList.concat(result)
-        }
-        obj.cb(result.length, this.pageIndex, res.data.result.pageIndex)
-      })
-    },
-    getUpdate () {
-      this.$axios({
-        url: APIS.Setgiftsigning,
-        method: 'get', // 两个shopCode NDT01 csxmd
-        params: {shopCode: this.shopCode, pageIndex: this.pageIndex, pageSize: this.pageSize, givenType: 1},
-        headers: {'Content-Type': 'application/json;charset=UTF-8'}
-      }).then(res => {
-        this.DetailList = res.data.result.result
-        let _self = this
-        this.showData({
-          type: 0,
-          cb (len) {
-            _self.$refs.scroll.upShow(len)
+        // console.log(res.status)
+        if (res.status === 200) {
+          this.$loading.hideLoading()
+          let result = res.data.result.result
+          this.$axios({
+            url: APIS.giftsigningDetail,
+            method: 'get', // 两个shopCode NDT01 csxmd
+            params: {shopCode: 'NDT01', offset: this.pageIndex, limit: this.pageSize, givenType: 1, time: '2019-1-21 12：30：20'},
+            headers: {'Content-Type': 'application/json;charset=UTF-8'}
+          }).then(res => {
+            let result1 = res.data.data.cashierGivenCoinDetaiList
+            for (var i = 0; i < result.length; i++) {
+              result[i].time = result1[i].createTime
+            }
+            // console.log(result)
+          })
+          if (obj.type === 0) {
+            this.DetailList = result
+          } else {
+            this.DetailList = this.DetailList.concat(result)
           }
-        })
+          obj.cb(result.length, this.pageIndex, res.data.result.pageIndex)
+        }
       })
     }
   }

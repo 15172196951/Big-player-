@@ -36,6 +36,7 @@
         <group label-width="4.5em" label-margin-right="2em" label-align="left">
           <!-- <selector v-model="list.value" title="用途" :options="list" direction="rtl" placeholder="请选择用途" @on-change="yongtuChang"></selector> -->
           <x-input
+            class="yongtu-input"
             title="备注"
             v-model="lengthP"
             text-align="right"
@@ -400,10 +401,15 @@ export default {
       }
     }
     .yongtu {
+      // line-height: 2.25rem;
+      // height: 2.25rem;
       font-size: 0.75rem;
       background-color: #fff;
       margin-bottom: 1.5rem;
       padding-right: 0.5rem;
+      .yongtu-input{
+        height: 2.25rem;
+      }
     }
     .btnbox {
       margin-bottom: 6.55rem;
