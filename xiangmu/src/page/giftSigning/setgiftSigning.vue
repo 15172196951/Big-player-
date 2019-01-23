@@ -165,7 +165,7 @@ export default {
       })
     },
     showData (obj) {
-      // console.log(obj.cb)
+      console.log(0)
       if (obj.type === 0) {
         this.pageIndex = 0
       } else {
@@ -179,7 +179,7 @@ export default {
         params: {shopCode: this.shopCode, pageIndex: this.pageIndex, pageSize: this.pageSize, givenType: 1},
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
-        // console.log(res.status)
+        console.log(1)
         if (res.status === 200) {
           this.$loading.hideLoading()
           let result = res.data.result.result
@@ -189,18 +189,19 @@ export default {
             params: {shopCode: 'NDT01', offset: this.pageIndex, limit: this.pageSize, givenType: 1, time: '2019-1-21 12：30：20'},
             headers: {'Content-Type': 'application/json;charset=UTF-8'}
           }).then(res => {
+            console.log(2)
             let result1 = res.data.data.cashierGivenCoinDetaiList
             for (var i = 0; i < result.length; i++) {
               result[i].time = result1[i].createTime
             }
+            if (obj.type === 0) {
+              this.DetailList = result
+            } else {
+              this.DetailList = this.DetailList.concat(result)
+            }
+            obj.cb(result.length, this.pageIndex)
             // console.log(result)
           })
-          if (obj.type === 0) {
-            this.DetailList = result
-          } else {
-            this.DetailList = this.DetailList.concat(result)
-          }
-          obj.cb(result.length, this.pageIndex, res.data.result.pageIndex)
         }
       })
     }
