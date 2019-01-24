@@ -21,7 +21,7 @@
           <checker v-model="gameblue" default-item-class="demo5-ite" selected-item-class="demo5-item-selected">
             <checker-item :value="1" @on-item-click="getValue">游戏币</checker-item>
           </checker>
-          <checker default-item-class="demo5-ite1" selected-item-class="demo5-item-selected2">
+          <checker default-item-class="demo5-ite1" selected-item-class="demo5-item-selected1">
             <checker-item :value="2">游戏券</checker-item>
           </checker>
           <span></span>

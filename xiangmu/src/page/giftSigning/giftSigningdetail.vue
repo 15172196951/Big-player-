@@ -211,7 +211,7 @@ export default {
   .select {
       width: 100%;
       height: 2.25rem;
-      margin-bottom: 0.75rem;
+      // margin-bottom: 0.75rem;
       font-size: 0.7rem;
       background-color: #fff;
       padding-left: 1rem;
@@ -236,6 +236,7 @@ export default {
       }
     }
   .Date {
+    background-color: #F0F0F5;
     padding: 0 0.75rem;
     font-size: 0.75rem;
     height: 2rem;
@@ -256,6 +257,7 @@ export default {
     height: 2rem;
     line-height: 2rem;
     color: #888888;
+    background-color: #fff;
     img {
       width: 1rem;
       height: 1rem;
@@ -267,8 +269,10 @@ export default {
     }
   }
   .bottom {
+    background-color: #fff;
     height: 3.4rem;
     padding: 0.55rem 0.75rem 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
     .bottom-p1 {
       font-size: 0.75rem;
       color: #222222;
