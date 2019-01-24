@@ -174,8 +174,8 @@ export default {
   .abc{
       width: 100%;
   .contentbox1 {
-    margin-top: 0.05rem;
-    margin-bottom: 0.05rem;
+    // margin-top: 0.05rem;
+    // margin-bottom: 0.05rem;
     font-size: 0.7rem;
     .round {
       border-radius: 100%;

@@ -22,7 +22,7 @@
                      pull-up-load
                      ref="scroll"
         >
-              <div class="co-bg-0 co-flex contentbox1" @click="jumpDetail(item.guid,item.id,index)" v-for="(item,index) in DetailList" :key="index">
+              <div class="co-bg-0 co-flex contentbox" @click="jumpDetail(item.guid,item.id,index)" v-for="(item,index) in DetailList" :key="index">
                   <img v-avatar="name"
                       class="round round-mg-06 fs-0"/>
                   <div class="co-bd-b content co-of fg-1" style="padding-top:0.7rem;padding-bottom:0.25rem;padding-right:0.32rem">
@@ -252,9 +252,9 @@ export default {
       margin-top: 0.73rem;
     }
   }
-    .contentbox1 {
-      margin-top: 0.05rem;
-      margin-bottom: 0.05rem;
+    .contentbox {
+      // margin-top: 0.05rem;
+      // margin-bottom: 0.05rem;
     }
     .round {
       border-radius: 100%;
@@ -316,9 +316,9 @@ export default {
 .co-Page {
   overflow: auto;
 }
-.vux-search-box{
-    top:8.5rem !important;
-  }
+// .vux-search-box{
+//     top:8.5rem !important;
+//   }
   .wrapper {
   height: 84.4%;
 }
