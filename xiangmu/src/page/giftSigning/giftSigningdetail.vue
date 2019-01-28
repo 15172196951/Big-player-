@@ -28,7 +28,7 @@
           <div class="content1" v-for="(item,index) in DetailList" :key="index">
               <div class="top co-flex co-jsb">
                   <p>
-                      <img src="../../assets/images/my.png" alt="">
+                      <img src="../../assets/images/my.png" alt="#">
                       <span>张三</span>
                   </p>
                   <p>

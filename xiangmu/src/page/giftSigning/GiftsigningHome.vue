@@ -55,7 +55,7 @@
           <router-link :to="{name:'setgiftSigning'}">签赠设置</router-link>
         </div>
         <div class="foot-right">
-          <img src="../../assets/images/mingxi.png" alt>
+          <img src="../../assets/images/mingxi.png" alt="#">
           <router-link :to="{name:'giftSigningdetall'}">签赠明细</router-link>
         </div>
       </div>

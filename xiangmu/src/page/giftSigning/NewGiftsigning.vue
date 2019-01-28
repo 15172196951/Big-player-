@@ -4,7 +4,7 @@
         <div class="Signperson co-flex co-jsb">
             <p>签赠人</p>
             <p @click="goYuangong">
-                <img src="../../assets/images/rightjiantou.png" alt="">
+                <img src="../../assets/images/rightjiantou.png" alt="#">
             </p>
         </div>
         <div class="everyDay">
