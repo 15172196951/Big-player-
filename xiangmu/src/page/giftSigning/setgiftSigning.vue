@@ -179,7 +179,7 @@ export default {
         params: {shopCode: this.shopCode, pageIndex: this.pageIndex, pageSize: this.pageSize, givenType: 1},
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
-        console.log(1)
+        console.log(res)
         if (res.status === 200) {
           this.$loading.hideLoading()
           let result = res.data.result.result

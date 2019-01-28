@@ -38,7 +38,7 @@
               <div class="bottom">
                   <p class="bottom-p1 co-flex co-jsb">
                       <span>{{item.cardNO}}</span>
-                      <span>{{item.id}}</span>
+                      <span>{{item.amount}}</span>
                   </p>
                   <p class="bottom-p2 co-flex co-jsb">
                       <span>客户赔币</span>
@@ -182,6 +182,7 @@ export default {
         params: {shopCode: this.shopCode, time: this.value1, offset: this.pageIndex, limit: this.pageSize},
         headers: {'Content-Type': 'application/json;charset=UTF-8'}
       }).then(res => {
+        console.log(res)
         this.$loading.hideLoading()
         if (res.data.status === 200) {
           let result = res.data.data.cashierGivenCoinDetaiList
