@@ -169,7 +169,7 @@ export default {
       // }
     },
     saoyisao () {
-      console.log('扫一扫被电击')
+      console.log('扫一扫被点击了')
     },
     // 用途改变
     // yongtuChang () {

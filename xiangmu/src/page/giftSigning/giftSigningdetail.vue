@@ -263,7 +263,7 @@ export default {
       width: 1rem;
       height: 1rem;
       vertical-align: top;
-      margin-top: 0.5rem;
+      margin-top: 0.45rem;
     }
     .top-span {
       margin-left: 0.13rem;
